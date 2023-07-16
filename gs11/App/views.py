@@ -1,6 +1,6 @@
 from .models import Student
 from .serializers import StudentSerializer
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, ListCreateAPIView , RetrieveUpdateAPIView, RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
 
 # 1. ListAPIView
 class StudentList(ListAPIView):
@@ -27,17 +27,22 @@ class StudentDestroy(DestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-# 6. RetrieveUpdateAPIView
+# 6.ListCreateAPIView
+class StudentListCreate(ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+# 7. RetrieveUpdateAPIView
 class StudentRetrieveUpdate(RetrieveUpdateAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-# 7. RetrieveDestroyAPIView
+# 8. RetrieveDestroyAPIView
 class StudentRetrieveDestoy(RetrieveDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-# 8. RetrieveUpdateDestroyAPIView
+# 9. RetrieveUpdateDestroyAPIView
 class StudentRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
